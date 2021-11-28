@@ -1,5 +1,6 @@
 package br.com.amd.githubimagecatcher.data.remote.serializers
 
+import br.com.amd.githubimagecatcher.data.remote.model.EmojiListResponse
 import br.com.amd.githubimagecatcher.data.remote.model.EmojiResponse
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.descriptors.PrimitiveKind
@@ -10,10 +11,10 @@ import kotlinx.serialization.encoding.Encoder
 import kotlinx.serialization.json.JsonDecoder
 import kotlinx.serialization.json.jsonObject
 
-object EmojiListSerializer : KSerializer<List<EmojiResponse>> {
+object EmojiListSerializer : KSerializer<EmojiListResponse> {
     override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor("kotlinx.serialization.json.JsonLiteral", PrimitiveKind.STRING)
 
-    override fun deserialize(decoder: Decoder): List<EmojiResponse> {
+    override fun deserialize(decoder: Decoder): EmojiListResponse {
         val jsonInput = decoder as? JsonDecoder ?: error("Can be deserialized only by JSON")
 
         val json = jsonInput.decodeJsonElement().jsonObject
@@ -24,10 +25,10 @@ object EmojiListSerializer : KSerializer<List<EmojiResponse>> {
             emojis.add(EmojiResponse(name = entry.key, url = entry.value.toString()))
         }
 
-        return emojis
+        return EmojiListResponse(emojis)
     }
 
-    override fun serialize(encoder: Encoder, value: List<EmojiResponse>) {
+    override fun serialize(encoder: Encoder, value: EmojiListResponse) {
         error("Serialization is not supported")
     }
 }

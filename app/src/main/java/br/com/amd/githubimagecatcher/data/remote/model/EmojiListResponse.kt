@@ -4,9 +4,7 @@ import br.com.amd.githubimagecatcher.data.remote.serializers.EmojiListSerializer
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
 
-@Serializable
+@Serializable(with = EmojiListSerializer::class)
 data class EmojiListResponse(
-    @Serializable(with = EmojiListSerializer::class)
-    @Transient
-    val emojis: List<EmojiResponse> = listOf()
+    @Transient val emojis: List<EmojiResponse> = listOf()
 )

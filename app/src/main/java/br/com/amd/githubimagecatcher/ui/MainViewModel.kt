@@ -21,7 +21,7 @@ class MainViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             val result = getEmojisUseCase().fold(
                 onSuccess = { emojis ->
-                    println("Yes!")
+                    println("$emojis")
                 },
                 onFailure = { error ->
                     Timber.e(error, "Failed to fetch emojis list.")
