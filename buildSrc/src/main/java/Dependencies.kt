@@ -50,10 +50,11 @@ object Dependencies {
     object Deps {
         const val androidMaterial = "com.google.android.material:material:${Versions.androidMaterial}"
 
+        const val androidxActivity = "androidx.activity:activity-ktx:${Versions.androidxActivity}"
         const val androidxAppCompat = "androidx.appcompat:appcompat:${Versions.androidxAppCompat}"
         const val androidxConstraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.androidxConstraintLayout}"
         const val androidxCore = "androidx.core:core-ktx:${Versions.androidxCore}"
-        const val androidxLifecycleRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.androidxLifecycle}"
+        const val androidxLifecycleLiveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.androidxLifecycle}"
         const val androidxLifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.androidxLifecycle}"
         const val androidxRoomCompiler = "androidx.room:room-compiler:${Versions.androidxRoom}"
         const val androidxRoomExtensions = "androidx.room:room-ktx:${Versions.androidxRoom}"
@@ -69,6 +70,8 @@ object Dependencies {
 
         const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
         const val retrofitKotlinSerializationConverter = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${Versions.retrofitKotlinSerializationConverter}"
+
+        const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 
         // Tests
         const val androidxJunit = "androidx.test.ext:junit:${Versions.androidxJunit}"
@@ -89,7 +92,7 @@ object Dependencies {
 
 // region dependencies extensions
 fun DependencyHandler.dependOnLifecycle() {
-    implementation(Deps.androidxLifecycleRuntime)
+    implementation(Deps.androidxLifecycleLiveData)
     implementation(Deps.androidxLifecycleViewModel)
 }
 

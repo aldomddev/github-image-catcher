@@ -8,8 +8,6 @@ class ServiceCreator(
     private val client: OkHttpClient,
     private val factoryList: List<Converter.Factory> = emptyList()
 ) {
-    inline fun <reified T> create(baseUrl: String) = create(T::class.java, baseUrl)
-
     fun <T> create(type: Class<T>, baseUrl: String): T {
         return Retrofit.Builder().apply {
             baseUrl(baseUrl)

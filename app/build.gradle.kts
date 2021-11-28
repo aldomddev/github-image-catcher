@@ -48,11 +48,13 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
+    implementation(Deps.androidxActivity)
     implementation(Deps.androidxAppCompat)
     implementation(Deps.androidxConstraintLayout)
     implementation(Deps.androidxCore)
     implementation(Deps.androidMaterial)
     implementation(Deps.kotlinSerialization)
+    implementation(Deps.timber)
     dependOnCoroutines()
     dependOnHilt()
     dependOnLifecycle()

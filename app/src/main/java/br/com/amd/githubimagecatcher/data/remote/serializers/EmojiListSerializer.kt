@@ -1,5 +1,6 @@
-package br.com.amd.githubimagecatcher.data.remote
+package br.com.amd.githubimagecatcher.data.remote.serializers
 
+import br.com.amd.githubimagecatcher.data.remote.model.EmojiResponse
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.descriptors.PrimitiveKind
 import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor

@@ -1,6 +1,7 @@
 object Versions {
     const val androidMaterial = "1.4.0"
 
+    const val androidxActivity = "1.4.0"
     const val androidxAppCompat = "1.4.0"
     const val androidxConstraintLayout = "2.1.2"
     const val androidxCore = "1.7.0"
@@ -16,6 +17,8 @@ object Versions {
 
     const val retrofit = "2.9.0"
     const val retrofitKotlinSerializationConverter = "0.8.0"
+
+    const val timber = "5.0.1"
 
     // tests
     const val androidxEspresso = "3.4.0"
