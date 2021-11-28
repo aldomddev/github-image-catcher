@@ -1,0 +1,20 @@
+object Versions {
+    const val androidMaterial = "1.4.0"
+
+    const val androidxAppCompat = "1.4.0"
+    const val androidxConstraintLayout = "2.1.2"
+    const val androidxCore = "1.7.0"
+    const val androidxLifecycle = "2.4.0"
+    const val androidxRoom = "2.3.0"
+
+    const val gradleVersionsPlugin = "0.39.0"
+    const val hiltAndroid = "2.40.2"
+    const val hiltExtensionCompiler = "1.0.0"
+    const val jetBrainsCoroutines = "1.5.2"
+
+    // tests
+    const val androidxEspresso = "3.4.0"
+    const val androidxJunit = "1.1.3"
+
+    const val junit = "4.13.2"
+}
