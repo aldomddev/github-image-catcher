@@ -5,6 +5,7 @@ plugins {
     id(Dependencies.BuildPlugins.kotlinAndroid)
     id(Dependencies.BuildPlugins.daggerHiltAndroid)
     id(Dependencies.BuildPlugins.kotlinKapt)
+    id(Dependencies.BuildPlugins.kotlinSerialization)
 }
 
 android {
@@ -51,9 +52,11 @@ dependencies {
     implementation(Deps.androidxConstraintLayout)
     implementation(Deps.androidxCore)
     implementation(Deps.androidMaterial)
+    implementation(Deps.kotlinSerialization)
     dependOnCoroutines()
     dependOnHilt()
     dependOnLifecycle()
+    dependOnRetrofit()
     dependOnRoom()
     // tests
     dependOnTests()

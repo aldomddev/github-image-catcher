@@ -28,16 +28,23 @@ object Dependencies {
         const val kotlinAndroidExtensions = "kotlin-android-extensions"
         const val kotlinKapt = "kotlin-kapt"
         const val kotlinParcelize = "kotlin-parcelize"
+        const val kotlinSerialization = "kotlinx-serialization"
 
         const val navigationSageArgs = "androidx.navigation.safeargs.kotlin"
 
         const val daggerHiltAndroid = "dagger.hilt.android.plugin"
+
+        const val gradleVersionsPlugin = "com.github.ben-manes.versions"
+    }
+
+    object ClasspathPlugins {
         const val daggerHiltAndroidGradle =
             "com.google.dagger:hilt-android-gradle-plugin:${Versions.hiltAndroid}"
 
-        const val gradleVersionsPlugin = "com.github.ben-manes.versions"
-        const val gradleVersionsClasspath =
+        const val gradleVersions =
             "com.github.ben-manes:gradle-versions-plugin:${Versions.gradleVersionsPlugin}"
+
+        const val kotlinSerialization = "org.jetbrains.kotlin:kotlin-serialization:${Versions.kotlin}"
     }
 
     object Deps {
@@ -58,6 +65,10 @@ object Dependencies {
         const val hiltExtensionCompiler = "androidx.hilt:hilt-compiler:${Versions.hiltExtensionCompiler}"
         const val hiltAndroidWorkManager = "androidx.hilt:hilt-work:${Versions.hiltExtensionCompiler}"
         const val jetBrainsCoroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.jetBrainsCoroutines}"
+        const val kotlinSerialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinSerialization}"
+
+        const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+        const val retrofitKotlinSerializationConverter = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${Versions.retrofitKotlinSerializationConverter}"
 
         // Tests
         const val androidxJunit = "androidx.test.ext:junit:${Versions.androidxJunit}"
@@ -95,6 +106,11 @@ fun DependencyHandler.dependOnHilt() {
 fun DependencyHandler.dependOnHiltExtensions() {
     implementation(Deps.hiltAndroidWorkManager)
     kapt(Deps.hiltExtensionCompiler)
+}
+
+fun DependencyHandler.dependOnRetrofit() {
+    implementation(Deps.retrofit)
+    implementation(Deps.retrofitKotlinSerializationConverter)
 }
 
 fun DependencyHandler.dependOnRoom() {

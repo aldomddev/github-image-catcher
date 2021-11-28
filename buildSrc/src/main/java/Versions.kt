@@ -11,6 +11,11 @@ object Versions {
     const val hiltAndroid = "2.40.2"
     const val hiltExtensionCompiler = "1.0.0"
     const val jetBrainsCoroutines = "1.5.2"
+    const val kotlin = "1.6.0"
+    const val kotlinSerialization = "1.3.1"
+
+    const val retrofit = "2.9.0"
+    const val retrofitKotlinSerializationConverter = "0.8.0"
 
     // tests
     const val androidxEspresso = "3.4.0"
