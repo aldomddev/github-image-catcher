@@ -62,6 +62,7 @@ object Dependencies {
         const val androidxRoomExtensions = "androidx.room:room-ktx:${Versions.androidxRoom}"
         const val androidxRoomRuntime = "androidx.room:room-runtime:${Versions.androidxRoom}"
         const val androidxRoomTesting = "androidx.room:room-testing:${Versions.androidxRoom}"
+        const val androidxSwipeToRefresh = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.androidxSwipeToRefresh}"
 
         const val coil = "io.coil-kt:coil:${Versions.coil}"
 

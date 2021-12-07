@@ -54,6 +54,7 @@ dependencies {
     implementation(Deps.androidxConstraintLayout)
     implementation(Deps.androidxCore)
     implementation(Deps.androidMaterial)
+    implementation(Deps.androidxSwipeToRefresh)
     implementation(Deps.coil)
     implementation(Deps.kotlinSerialization)
     implementation(Deps.timber)

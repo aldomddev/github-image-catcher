@@ -18,14 +18,12 @@ class EmojisListViewModel @Inject constructor(
     private val getEmojisUseCase: GetEmojisUseCase
 ) : ViewModel() {
 
-    init {
-        getEmojis()
-    }
-
     private val _viewState = MutableLiveData<ViewState<List<EmojiVO>>>()
     val viewState = _viewState.toLiveData()
 
-    private fun getEmojis() {
+    fun getEmojis() {
+        _viewState.value = ViewState.Loading
+
         viewModelScope.launch(Dispatchers.IO) {
             val result = getEmojisUseCase()
             result.onSuccess { emojis ->

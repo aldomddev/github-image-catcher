@@ -35,13 +35,21 @@ class EmojisListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setAdapter()
+        setListeners()
         setObservers()
+        loadContent()
     }
 
     private fun setAdapter() {
         adapter = EmojisAdapter()
         binding.rvEmojis.layoutManager = GridLayoutManager(requireContext(), ITEMS_PER_ROW)
         binding.rvEmojis.adapter = adapter
+    }
+
+    private fun setListeners() {
+        binding.srlRefreshContent.setOnRefreshListener {
+            loadContent()
+        }
     }
 
     private fun setObservers() {
@@ -57,9 +65,13 @@ class EmojisListFragment : Fragment() {
         )
     }
 
+    private fun loadContent() {
+        viewModel.getEmojis()
+    }
+
     private fun renderLoadingState() {
         with(binding) {
-            cpiLoading.isVisible = true
+            srlRefreshContent.isRefreshing = true
             tvEmptyMessage.isVisible = false
             rvEmojis.isVisible = false
         }
@@ -67,7 +79,7 @@ class EmojisListFragment : Fragment() {
 
     private fun renderErrorState() {
         with(binding) {
-            cpiLoading.isVisible = false
+            srlRefreshContent.isRefreshing = false
             tvEmptyMessage.isVisible = true
             rvEmojis.isVisible = false
         }
@@ -75,7 +87,7 @@ class EmojisListFragment : Fragment() {
 
     private fun renderLoadedState(emojis: List<EmojiVO>) {
         with(binding) {
-            cpiLoading.isVisible = false
+            srlRefreshContent.isRefreshing = false
             tvEmptyMessage.isVisible = false
             rvEmojis.isVisible = true
         }

@@ -8,6 +8,7 @@ object Versions {
     const val androidxLifecycle = "2.4.0"
     const val androidxNavigation = "2.3.5"
     const val androidxRoom = "2.3.0"
+    const val androidxSwipeToRefresh = "1.1.0"
     const val coil = "1.4.0"
     const val gradleVersionsPlugin = "0.39.0"
     const val hiltAndroid = "2.40.2"
