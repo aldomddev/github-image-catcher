@@ -6,6 +6,7 @@ plugins {
     id(Dependencies.BuildPlugins.daggerHiltAndroid)
     id(Dependencies.BuildPlugins.kotlinKapt)
     id(Dependencies.BuildPlugins.kotlinSerialization)
+    id(Dependencies.BuildPlugins.kotlinParcelize)
 }
 
 android {
@@ -53,9 +54,12 @@ dependencies {
     implementation(Deps.androidxConstraintLayout)
     implementation(Deps.androidxCore)
     implementation(Deps.androidMaterial)
+    implementation(Deps.coil)
     implementation(Deps.kotlinSerialization)
     implementation(Deps.timber)
+    dependOnNavigation()
     dependOnCoroutines()
+    dependOnGlide()
     dependOnHilt()
     dependOnLifecycle()
     dependOnRetrofit()

@@ -56,10 +56,16 @@ object Dependencies {
         const val androidxCore = "androidx.core:core-ktx:${Versions.androidxCore}"
         const val androidxLifecycleLiveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.androidxLifecycle}"
         const val androidxLifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.androidxLifecycle}"
+        const val androidxNavigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.androidxNavigation}"
+        const val androidxNavigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.androidxNavigation}"
         const val androidxRoomCompiler = "androidx.room:room-compiler:${Versions.androidxRoom}"
         const val androidxRoomExtensions = "androidx.room:room-ktx:${Versions.androidxRoom}"
         const val androidxRoomRuntime = "androidx.room:room-runtime:${Versions.androidxRoom}"
         const val androidxRoomTesting = "androidx.room:room-testing:${Versions.androidxRoom}"
+
+        const val coil = "io.coil-kt:coil:${Versions.coil}"
+        const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+        const val glideProcessor = "com.github.bumptech.glide:compiler:${Versions.glide}"
 
         const val hiltAndroid = "com.google.dagger:hilt-android:${Versions.hiltAndroid}"
         const val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hiltAndroid}"
@@ -100,6 +106,11 @@ fun DependencyHandler.dependOnCoroutines() {
     implementation(Deps.jetBrainsCoroutines)
 }
 
+fun DependencyHandler.dependOnGlide() {
+    implementation(Deps.glide)
+    kapt(Deps.glideProcessor)
+}
+
 fun DependencyHandler.dependOnHilt() {
     implementation(Deps.hiltAndroid)
     kapt(Deps.hiltAndroidCompiler)
@@ -109,6 +120,11 @@ fun DependencyHandler.dependOnHilt() {
 fun DependencyHandler.dependOnHiltExtensions() {
     implementation(Deps.hiltAndroidWorkManager)
     kapt(Deps.hiltExtensionCompiler)
+}
+
+fun DependencyHandler.dependOnNavigation() {
+    implementation(Deps.androidxNavigationFragment)
+    implementation(Deps.androidxNavigationUi)
 }
 
 fun DependencyHandler.dependOnRetrofit() {

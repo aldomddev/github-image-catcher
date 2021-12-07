@@ -18,15 +18,15 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object ServiceModule {
-//    @ExperimentalSerializationApi
-//    @Provides
-//    fun provideJsonConverterFactories(): Converter.Factory {
-//        return Json.asConverterFactory(MediaType.get("application/json"))
-//    }
-
     @Provides
     fun provideJson(): Json {
         return Json { ignoreUnknownKeys = true }
+    }
+
+    @ExperimentalSerializationApi
+    @Provides
+    fun provideJsonConverterFactory(): Converter.Factory {
+        return Json.asConverterFactory(MediaType.get("application/json"))
     }
 
     @Singleton
@@ -36,8 +36,11 @@ object ServiceModule {
     @ExperimentalSerializationApi
     @Singleton
     @Provides
-    fun provideServiceCreator(client: OkHttpClient, json: Json): ServiceCreator {
-        return ServiceCreator(client = client, factoryList = listOf(json.asConverterFactory(MediaType.get("application/json"))))
+    fun provideServiceCreator(
+        client: OkHttpClient,
+        jsonConverterFactory: Converter.Factory
+    ): ServiceCreator {
+        return ServiceCreator(client = client, factoryList = listOf(jsonConverterFactory))
     }
 
     @Singleton

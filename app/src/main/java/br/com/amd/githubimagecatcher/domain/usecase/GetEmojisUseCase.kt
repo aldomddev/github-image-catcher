@@ -9,7 +9,8 @@ class GetEmojisUseCase @Inject constructor(
     private val gitHubRepository: GitHubRepository
 ) {
     suspend operator fun invoke() : Result<List<Emoji>> = try {
-        Result.success(gitHubRepository.getEmojis())
+        val emojis = gitHubRepository.getEmojis()
+        Result.success(emojis)
     } catch (error: Exception) {
         Result.failure(error)
     }
