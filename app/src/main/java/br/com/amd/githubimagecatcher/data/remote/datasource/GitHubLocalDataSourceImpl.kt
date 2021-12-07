@@ -15,17 +15,12 @@ class GitHubLocalDataSourceImpl @Inject constructor(
         return emojiDao.getEmojis().toDomain()
     }
 
-    override suspend fun getEmojiByName(name: String): Emoji {
-        return emojiDao.getEmojiByName(name = name).toDomain()
+    override suspend fun getEmojiById(id: Int): Emoji {
+        return emojiDao.getEmojiById(id = id).toDomain()
     }
 
     override suspend fun saveOrUpdate(emoji: Emoji) {
-        val namedEmoji = emojiDao.getEmojiByName(name = emoji.name)
-        if (namedEmoji.id > 0) {
-            emojiDao.saveOrUpdate(emoji = emoji.toDataEntity().copy(id = namedEmoji.id))
-        } else {
-            emojiDao.saveOrUpdate(emoji = emoji.toDataEntity())
-        }
+        emojiDao.saveOrUpdate(emoji = emoji.toDataEntity())
     }
 
     override suspend fun saveOrUpdate(emojis: List<Emoji>) {

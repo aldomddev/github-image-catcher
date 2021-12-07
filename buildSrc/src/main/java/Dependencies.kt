@@ -64,8 +64,6 @@ object Dependencies {
         const val androidxRoomTesting = "androidx.room:room-testing:${Versions.androidxRoom}"
 
         const val coil = "io.coil-kt:coil:${Versions.coil}"
-        const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
-        const val glideProcessor = "com.github.bumptech.glide:compiler:${Versions.glide}"
 
         const val hiltAndroid = "com.google.dagger:hilt-android:${Versions.hiltAndroid}"
         const val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hiltAndroid}"
@@ -104,11 +102,6 @@ fun DependencyHandler.dependOnLifecycle() {
 
 fun DependencyHandler.dependOnCoroutines() {
     implementation(Deps.jetBrainsCoroutines)
-}
-
-fun DependencyHandler.dependOnGlide() {
-    implementation(Deps.glide)
-    kapt(Deps.glideProcessor)
 }
 
 fun DependencyHandler.dependOnHilt() {

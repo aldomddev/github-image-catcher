@@ -1,6 +1,5 @@
 package br.com.amd.githubimagecatcher.ui.emojislist
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -15,7 +14,7 @@ import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
-class EmojisListViewModel @Inject constructor (
+class EmojisListViewModel @Inject constructor(
     private val getEmojisUseCase: GetEmojisUseCase
 ) : ViewModel() {
 

@@ -8,8 +8,8 @@ interface EmojiDao {
     @Query("SELECT * FROM github_emojis")
     fun getEmojis(): List<EmojiEntity>
 
-    @Query("SELECT * FROM github_emojis WHERE :name LIKE name")
-    fun getEmojiByName(name: String): EmojiEntity
+    @Query("SELECT * FROM github_emojis WHERE id = :id")
+    fun getEmojiById(id: Int): EmojiEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun saveOrUpdate(emoji: EmojiEntity)

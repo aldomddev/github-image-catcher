@@ -59,7 +59,6 @@ dependencies {
     implementation(Deps.timber)
     dependOnNavigation()
     dependOnCoroutines()
-    dependOnGlide()
     dependOnHilt()
     dependOnLifecycle()
     dependOnRetrofit()

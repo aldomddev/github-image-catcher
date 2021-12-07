@@ -22,7 +22,7 @@ class GitHubRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getEmojiByName(name: String): Emoji {
-        return Emoji(name = "", url = "")
+    override suspend fun getEmojiById(id: Int): Emoji {
+        return gitHubLocalDataSource.getEmojiById(id = id)
     }
 }
