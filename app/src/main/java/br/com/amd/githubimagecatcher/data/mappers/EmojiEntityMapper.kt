@@ -1,12 +1,12 @@
 package br.com.amd.githubimagecatcher.data.mappers
 
 import br.com.amd.githubimagecatcher.data.local.datasource.model.EmojiEntity
-import br.com.amd.githubimagecatcher.domain.model.Emoji
+import br.com.amd.githubimagecatcher.domain.model.Image
 
-fun EmojiEntity.toDomain() = Emoji(id = id, name = name, url = url)
+fun EmojiEntity.toDomain() = Image(id = id, name = name, url = url)
 
 fun List<EmojiEntity>.toDomain() = this.map { it.toDomain() }
 
-fun Emoji.toDataEntity() = EmojiEntity(id = id, name = name, url = url)
+fun Image.toEmojiEntity() = EmojiEntity(id = id, name = name, url = url)
 
-fun List<Emoji>.toDataEntity() = this.map { it.toDataEntity() }
+fun List<Image>.toEmojiEntity() = this.map { it.toEmojiEntity() }

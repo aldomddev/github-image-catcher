@@ -2,8 +2,9 @@ package br.com.amd.githubimagecatcher.di
 
 import android.content.Context
 import androidx.room.Room
-import br.com.amd.githubimagecatcher.data.local.EmojiDao
-import br.com.amd.githubimagecatcher.data.local.database.EmojisDatabase
+import br.com.amd.githubimagecatcher.data.local.dao.AvatarDao
+import br.com.amd.githubimagecatcher.data.local.dao.EmojiDao
+import br.com.amd.githubimagecatcher.data.local.database.ImageDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,15 +18,19 @@ object DatabaseModule {
 
     @Singleton
     @Provides
-    fun provideEmojisDatabase(@ApplicationContext context: Context): EmojisDatabase {
+    fun provideEmojisDatabase(@ApplicationContext context: Context): ImageDatabase {
         return Room.databaseBuilder(
             context,
-            EmojisDatabase::class.java,
+            ImageDatabase::class.java,
             "emojis.db"
         ).build()
     }
 
     @Singleton
     @Provides
-    fun provideEmojiDao(database: EmojisDatabase): EmojiDao = database.getEmojiDao()
+    fun provideEmojiDao(database: ImageDatabase): EmojiDao = database.getEmojiDao()
+
+    @Singleton
+    @Provides
+    fun provideAvatarDao(database: ImageDatabase): AvatarDao = database.getAvatarDao()
 }

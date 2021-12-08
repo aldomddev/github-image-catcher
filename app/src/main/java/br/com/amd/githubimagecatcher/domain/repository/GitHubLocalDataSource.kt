@@ -1,10 +1,13 @@
 package br.com.amd.githubimagecatcher.domain.repository
 
-import br.com.amd.githubimagecatcher.domain.model.Emoji
+import br.com.amd.githubimagecatcher.domain.model.Image
 
 interface GitHubLocalDataSource {
-    suspend fun getEmojis(): List<Emoji>
-    suspend fun getEmojiById(id: Int): Emoji
-    suspend fun saveOrUpdate(emoji: Emoji)
-    suspend fun saveOrUpdate(emojis: List<Emoji>)
+    suspend fun getEmojis(): List<Image>
+    suspend fun getEmojiById(id: Int): Image
+    suspend fun saveEmoji(emoji: Image)
+    suspend fun saveEmojis(emojis: List<Image>)
+    suspend fun getAvatar(username: String): Image
+    suspend fun saveAvatar(avatar: Image)
+    suspend fun deleteAvatar(avatar: Image)
 }

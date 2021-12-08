@@ -1,19 +1,19 @@
-package br.com.amd.githubimagecatcher.data.local
+package br.com.amd.githubimagecatcher.data.local.dao
 
 import androidx.room.*
 import br.com.amd.githubimagecatcher.data.local.datasource.model.EmojiEntity
 
 @Dao
 interface EmojiDao {
-    @Query("SELECT * FROM github_emojis")
+    @Query("SELECT * FROM emoji")
     fun getEmojis(): List<EmojiEntity>
 
-    @Query("SELECT * FROM github_emojis WHERE id = :id")
+    @Query("SELECT * FROM emoji WHERE id = :id")
     fun getEmojiById(id: Int): EmojiEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun saveOrUpdate(emoji: EmojiEntity)
+    fun saveEmoji(emoji: EmojiEntity)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun saveOrUpdate(emojis: List<EmojiEntity>)
+    fun saveEmojis(emojis: List<EmojiEntity>)
 }

@@ -1,8 +1,8 @@
 package br.com.amd.githubimagecatcher.ui.mappers
 
-import br.com.amd.githubimagecatcher.domain.model.Emoji
+import br.com.amd.githubimagecatcher.domain.model.Image
 import br.com.amd.githubimagecatcher.ui.model.EmojiVO
 
-fun Emoji.toUiVO() = EmojiVO(id = id, url = url)
+fun Image.toUiVO() = EmojiVO(id = id, url = url)
 
-fun List<Emoji>.toUiVO() = this.map { it.toUiVO() }
+fun List<Image>.toUiVO() = this.map { it.toUiVO() }

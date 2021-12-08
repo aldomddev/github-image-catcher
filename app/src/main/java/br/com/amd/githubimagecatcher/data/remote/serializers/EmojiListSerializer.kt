@@ -1,7 +1,7 @@
 package br.com.amd.githubimagecatcher.data.remote.serializers
 
 import br.com.amd.githubimagecatcher.data.remote.model.EmojiListResponse
-import br.com.amd.githubimagecatcher.data.remote.model.EmojiResponse
+import br.com.amd.githubimagecatcher.data.remote.model.ImageResponse
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.descriptors.PrimitiveKind
 import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
@@ -21,10 +21,10 @@ object EmojiListSerializer : KSerializer<EmojiListResponse> {
         val json = jsonInput.decodeJsonElement().jsonObject
         val propertiesMap = json.toMutableMap()
 
-        val emojis = mutableListOf<EmojiResponse>()
+        val emojis = mutableListOf<ImageResponse>()
         propertiesMap.entries.forEach { entry ->
             emojis.add(
-                EmojiResponse(
+                ImageResponse(
                     name = entry.key,
                     url = entry.value.jsonPrimitive.content
                 )
